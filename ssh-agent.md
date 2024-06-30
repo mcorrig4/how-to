@@ -1,5 +1,18 @@
 # SSH Agent Linux
 
+### Create Keys
+```sh
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+
+ssh-keygen -t ed25519 -C "my-name@gmail.com"
+chmod 600 ~/.ssh/new_key_ed25519
+chmod 644 ~/.ssh/new_key_ed25519.pub
+```
+> [!NOTE]
+> you cannot use `~` when creating key. Use full path `/home/username/.ssh/new_key_ed25519`
+
+### Run SSH Agent & Add Keys
 Add this to `~/.bashrc`:
 ```sh
 #
@@ -23,4 +36,9 @@ if ! [ "$?" == 0 ]; then
 else
     echo Keys already added
 fi
+```
+
+Reload `.bashrc`
+```sh
+source ~/.bashrc
 ```
