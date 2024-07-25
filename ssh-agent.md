@@ -66,6 +66,14 @@ else
 fi
 ```
 
+Edit `~/.ssh/config`
+```
+Host github.com
+    IgnoreUnknown UseKeychain
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/github_id_rsa
+```
+
 Reload `.bashrc`
 ```sh
 source ~/.bashrc
